@@ -55,16 +55,16 @@ def get_note_by_id(id):
     return False
 
 while True:
-    command = input("*** Введите команду: ")
+    command = input("Введите команду: ")
 
     if command == 'list':
 
         notes_list = get_notes()
 
-        print("------ \nСписок заметок: ")
+        print("Список заметок: ")
         for note in notes_list:
-            print("- Заметка №" + str(note['id']) + ": " + note['name'] + " (" + note['date'] + ")")
-        print("------")
+            print("Заметка №" + str(note['id']) + ": " + note['name'] + " (" + note['date'] + ")")
+        print("")
         continue
 
     if command == 'read':
@@ -74,9 +74,9 @@ while True:
         note = get_note_by_id(note_id)
 
         if (note):
-            print("------\nЗаметка №" + str(note['id']) + " от " + note['date'] + "\nНазвание заметки: " + note['name'] + "\nТекст заметки: " + note['body'] + "\n------")
+            print("Заметка №" + str(note['id']) + " от " + note['date'] + "\nНазвание заметки: " + note['name'] + "\nТекст заметки: " + note['body'] + "\n")
         else:
-            print("Заметка с таким номером не найдена.\n------")
+            print("Заметка с таким номером не найдена.\n")
 
         continue
 
@@ -96,7 +96,7 @@ while True:
             id = 1
 
         save_note(id, name, body)
-        print("Заметка сохранена.\n------")
+        print("Заметка сохранена.\n")
         continue
 
     if command == 'edit':
@@ -106,9 +106,9 @@ while True:
         note = get_note_by_id(note_id)
 
         if (note):
-            print("------\nЗаметка №" + str(note['id']) + " от " + note['date'] + "\nНазвание заметки: " + note['name'] + "\nТекст заметки: " + note['body'] + "\n------\n *Режим редактирования*")
+            print("\nЗаметка №" + str(note['id']) + " от " + note['date'] + "\nНазвание заметки: " + note['name'] + "\nТекст заметки: " + note['body'] + "\n *Режим редактирования*")
         else:
-            print("Заметка с таким номером не найдена.\n------")
+            print("Заметка с таким номером не найдена.\n")
             continue
 
         print("Введите новое название заметки: ")
@@ -120,7 +120,7 @@ while True:
         if (delete_note(note['id'])):
             save_note(note['id'], name, body)
 
-        print("Заметка успешно обновлена.\n------")
+        print("Заметка успешно обновлена.\n")
         continue
 
     if command == 'delete':
@@ -128,15 +128,15 @@ while True:
         delete_note_id = input("Введите номер заметки, которую нужно удалить: ")
 
         if (delete_note(delete_note_id)):
-            print("Заметка удалена успешно.\n------")
+            print("Заметка удалена успешно.\n")
         else:
-            print("Заметка с таким номером не найдена.\n------")
+            print("Заметка с таким номером не найдена.\n")
 
         continue
 
     if command == 'help':
 
-        print("------ \nПриложение имеет следующие функции: \nlist - просмотр списка заметок, \nadd - добавить заметку, \nread - чтение заметки (указать № заметки), \nedit - изменить заметку (указать № заметки), \ndelete - удалить заметку (указать № заметки), \nhelp - посмотреть туториал\n------")
+        print("\nПриложение имеет следующие функции: \nlist - просмотр списка заметок, \nadd - добавить заметку, \nread - чтение заметки (указать № заметки), \nedit - изменить заметку (указать № заметки), \ndelete - удалить заметку (указать № заметки), \nhelp - посмотреть туториал\n")
     
     else:
         
